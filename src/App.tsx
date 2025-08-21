@@ -11,6 +11,7 @@ const initialTodos: TodoType[] = [
 
 function App() {
   // ts
+  // 할일 목록 상태 관리
   const [todos, setTodos] = useState<TodoType[]>(initialTodos);
 
   // 업데이트
@@ -26,7 +27,7 @@ function App() {
     setTodos(arr);
   };
 
-  const OnDelete = (id: string): void => {
+  const onDelete = (id: string): void => {
     const arr: TodoType[] = todos.filter(todo => todo.id !== id);
     setTodos(arr);
   };
@@ -38,10 +39,10 @@ function App() {
 
   // tsx
   return (
-    <div>
-      <h1>원데이</h1>
+    <div className="w-full max-w-xl mx-auto px-4">
+      <h1 className="text-3xl font-bold text-center text-sky-600 my-6">ONEDAY</h1>
       <TodoWrite setTodos={setTodos} handleTodoUpdate={handleTodoUpdate} />
-      <TodoList todos={todos} onToggle={onToggle} OnDelete={OnDelete} onEdit={onEdit} />
+      <TodoList todos={todos} onToggle={onToggle} onDelete={onDelete} onEdit={onEdit} />
     </div>
   );
 }
