@@ -3,16 +3,11 @@ import TodoWrite from 'components/todos/TodoWrite';
 import { useState } from 'react';
 import { TodoType } from 'types/todoType';
 
-const initialTodos: TodoType[] = [
-  { id: '1', title: '할일 1', completed: false },
-  { id: '2', title: '할일 2', completed: false },
-  { id: '3', title: '할일 3', completed: false },
-];
-
 function App() {
   // ts
   // 할일 목록 상태 관리
-  const [todos, setTodos] = useState<TodoType[]>(initialTodos);
+  const [todos, setTodos] = useState<TodoType[]>([]);
+  const [editId, setEditId] = useState<string | null>(null);
 
   // 업데이트
   const handleTodoUpdate = (newTodo: TodoType): void => {
@@ -36,13 +31,32 @@ function App() {
     const arr = todos.map(item => (item.id === id ? { ...item, title: newTitle } : item));
     setTodos(arr);
   };
+  const onStartEdit = (id: string) => {
+    setEditId(id);
+  };
+
+  const onEndEdit = () => {
+    setEditId(null);
+  };
 
   // tsx
   return (
-    <div className="w-full max-w-xl mx-auto px-4">
-      <h1 className="text-3xl font-bold text-center text-sky-600 my-6">ONEDAY</h1>
-      <TodoWrite setTodos={setTodos} handleTodoUpdate={handleTodoUpdate} />
-      <TodoList todos={todos} onToggle={onToggle} onDelete={onDelete} onEdit={onEdit} />
+    <div className="min-h-screen w-full max-w-xl mx-auto px-4 py-12 bg-gradient-to-br from-sky-50 via-cyan-50 to-blue-50 flex flex-col items-center ">
+      <h1 className="text-3xl font-bold text-center text-sky-600 my-6 mb-10 drop-shadow-md select-none">
+        ONEDAY
+      </h1>
+      <div className="w-full max-w-xl bg-white rounded-3xl shadow-lg p-8 ring-1 ring-sky-200">
+        <TodoWrite setTodos={setTodos} handleTodoUpdate={handleTodoUpdate} />
+        <TodoList
+          todos={todos}
+          onToggle={onToggle}
+          onDelete={onDelete}
+          onEdit={onEdit}
+          onStartEdit={onStartEdit}
+          onEndEdit={onEndEdit}
+          editId={editId}
+        />
+      </div>
     </div>
   );
 }
