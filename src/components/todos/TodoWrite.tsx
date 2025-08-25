@@ -39,21 +39,26 @@ const TodoWrite = ({ setTodos, handleTodoUpdate }: TodoWriteProps) => {
 
   //tsx
   return (
-    <div className="w-full bg-white rounded-xl shadow-md p-4 flex items-center gap-3 mb-6">
-      <input
-        type="text"
-        value={title}
-        onChange={e => handleChange(e)}
-        onKeyDown={handleKeyDown}
-        placeholder="할 일을 입력하세요"
-        className="flex-1 rounded-lg border border-slate-300 bg-sky-50 px-4 py-2 text-slate-800 placeholder:text-slate-400  focus:outline-none focus:ring-2 focus:ring-sky-400 transition-all"
-      />
-      <button
-        onClick={handleAdd}
-        className="px-5 py-2 rounded-lg bg-sky-500 text-white font-semibold shadow hover:bg-sky-600 active:scale-95 transition"
-      >
-        등록
-      </button>
+    <div className="w-full bg-white border border-gray-100 rounded-xl shadow-md p-6 mb-6">
+      <h1 className="text-3xl font-bold text-center text-sky-600 mb-4 drop-shadow-md select-none">
+        TODOLIST
+      </h1>
+      <div className="flex items-center gap-3">
+        <input
+          type="text"
+          value={title}
+          onChange={e => handleChange(e)}
+          onKeyDown={handleKeyDown}
+          placeholder="할 일을 입력하세요"
+          className="flex-1 rounded-lg border border-slate-300 px-4 py-2 text-slate-800 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-sky-400 transition-all"
+        />
+        <button
+          onClick={handleAdd}
+          className="px-5 py-2 rounded-lg bg-sky-500 text-white font-semibold shadow hover:bg-sky-600 active:scale-95 transition"
+        >
+          등록
+        </button>
+      </div>
     </div>
   );
 };

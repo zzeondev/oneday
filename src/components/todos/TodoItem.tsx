@@ -63,7 +63,7 @@ const TodoItem = ({
 
   // tsx
   return (
-    <li className="w-full flex items-center justify-between mb-4 gap-3 rounded-xl border border-slate-200 bg-white px-5 py-2 shadow transition">
+    <li className="w-full flex items-center justify-between mb-4 gap-3 rounded-xl border border-gray-100 bg-white px-5 py-2 shadow transition">
       {isEdit ? (
         <div className="flex w-full items-center gap-3">
           <input
@@ -72,17 +72,17 @@ const TodoItem = ({
             onChange={e => setEditTitle(e.target.value)}
             onKeyDown={handleEditKeyDown}
             placeholder="할 일을 입력하세요"
-            className="flex-1 rounded-lg border border-sky-200 bg-sky-50 px-4 py-2 text-slate-800 placeholder:text-slate-400 outline-none focus:ring-2 focus:ring-sky-400 transition"
+            className="flex-1 rounded-lg border border-sky-300 px-4 py-2 text-slate-800 placeholder:text-slate-400 outline-none focus:ring-2 focus:ring-sky-400 transition"
           />
           <button
             onClick={handleEditSave}
-            className="px-4 py-2 rounded-lg bg-sky-500 text-white font-semibold hover:bg-sky-600 active:scale-95 transition"
+            className="px-4 py-2 rounded-lg bg-sky-400 text-white font-semibold hover:bg-sky-500 active:scale-95 transition"
           >
             저장
           </button>
           <button
             onClick={handleEditCancle}
-            className="px-4 py-2 rounded-lg bg-slate-200 text-slate-700 font-medium hover:bg-slate-300 active:scale-95 transition"
+            className="px-4 py-2 rounded-md bg-gray-300 text-white hover:bg-gray-400 transition"
           >
             취소
           </button>
@@ -119,7 +119,7 @@ const TodoItem = ({
             </button>
             <button
               onClick={() => onDelete(todo.id)}
-              className="px-4 py-2 rounded-md bg-gray-400 text-white hover:bg-gray-400 transition"
+              className="px-4 py-2 rounded-md bg-gray-200 text-white hover:bg-gray-300 transition"
             >
               삭제
             </button>

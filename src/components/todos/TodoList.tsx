@@ -28,8 +28,10 @@ const TodoList = ({
   });
 
   return (
-    <div className="w-full max-w-2xl mx-auto mt-8 bg-white rounded-2xl shadow-lg p-8 transition-all duration-300">
-      <h2 className="text-3xl font-bold text-sky-600 mb-6">할 일 목록</h2>
+    <div className="w-full border border-gray-100 max-w-2xl mx-auto mt-8 bg-white rounded-2xl shadow-lg p-8 transition-all duration-300">
+      <h2 className="text-2xl font-bold text-center text-sky-600 mb-6 drop-shadow-md select-none">
+        할 일 목록
+      </h2>
       {todos.length === 0 ? (
         <p className="text-slate-400 text-center italic">목록이 없습니다.</p>
       ) : (
